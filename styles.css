@@ -24,6 +24,7 @@ input {
     font-size: 24px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    transform: scale(0.9); /* 10% 축소 */
 }
 
 .buttons {
@@ -50,4 +51,5 @@ button:hover {
     background-color: #f78c6c;
     color: #fff;
 }
+
 
