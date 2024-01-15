@@ -21,7 +21,10 @@ function calculate() {
     }
 }
 
-function percent() {
-    display.value = String(parseFloat(display.value) / 100);
+function calculatePercentage() {
+    try {
+        display.value = String(parseFloat(display.value) / 100);
+    } catch (error) {
+        display.value = 'Error';
+    }
 }
-
