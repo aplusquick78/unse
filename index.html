@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleek Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>고급 버튼식 계산기</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-        <div class="buttons">
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('*')">*</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="clearDisplay()">C</button>
-            <button class="operator" onclick="calculate()">=</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
-        </div>
-    </div>
+    <h1>고급 버튼식 계산기</h1>
+    <form id="calculator-form">
+        <input type="text" id="expression-input" placeholder="수식을 입력하세요">
+        <button type="button" onclick="calculate()">계산</button>
+        <div id="result"></div>
+    </form>
+
+    <form id="sqrt-form">
+        <input type="text" id="sqrt-input" placeholder="제곱근을 구할 숫자를 입력하세요">
+        <button type="button" onclick="calculateSqrt()">제곱근</button>
+        <div id="sqrt-result"></div>
+    </form>
+
+    <form id="factorial-form">
+        <input type="text" id="factorial-input" placeholder="팩토리얼을 구할 숫자를 입력하세요">
+        <button type="button" onclick="calculateFactorial()">팩토리얼</button>
+        <div id="factorial-result"></div>
+    </form>
 
     <script src="script.js"></script>
 </body>
 </html>
+
