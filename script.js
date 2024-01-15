@@ -1,25 +1,21 @@
-let display = document.getElementById('display');
+let input = document.getElementById('result');
 
-function appendToDisplay(value) {
-    display.value += value;
+function appendNumber(number) {
+    input.value += number;
 }
 
-function clearDisplay() {
-    display.value = '';
+function appendOperator(operator) {
+    input.value += operator;
 }
 
-function backspace() {
-    display.value = display.value.slice(0, -1);
+function clearInput() {
+    input.value = '';
 }
 
 function calculate() {
     try {
-        let result = eval(display.value);
-        
-        // 단위 표시를 추가
-        display.value = result.toLocaleString() + ' 단위'; // '단위'를 필요한 단위로 변경
-
+        input.value = eval(input.value);
     } catch (error) {
-        display.value = 'Error';
+        input.value = 'Error';
     }
 }
