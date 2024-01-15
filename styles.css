@@ -24,7 +24,7 @@ input {
     font-size: 24px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    transform: scale(0.9); /* 10% 축소 */
+    transform: scale(0.8); /* 20% 축소 */
 }
 
 .buttons {
