@@ -1,21 +1,18 @@
-let input = document.getElementById('result');
+// script.js
+let display = document.getElementById('display');
 
-function appendNumber(number) {
-    input.value += number;
+function appendToDisplay(value) {
+    display.value += value;
 }
 
-function appendOperator(operator) {
-    input.value += operator;
-}
-
-function clearInput() {
-    input.value = '';
+function clearDisplay() {
+    display.value = '';
 }
 
 function calculate() {
     try {
-        input.value = eval(input.value);
+        display.value = eval(display.value);
     } catch (error) {
-        input.value = 'Error';
+        display.value = 'Error';
     }
 }
