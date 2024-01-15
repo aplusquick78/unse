@@ -23,7 +23,7 @@ function calculate() {
 
 function calculatePercentage() {
     try {
-        display.value = String(eval(display.value) * 0.01);
+        display.value = String(parseFloat(display.value) * 0.01);
     } catch (error) {
         display.value = 'Error';
     }
