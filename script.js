@@ -25,7 +25,7 @@ function calculate() {
 
 function calculatePercentage() {
     try {
-        let result = parseFloat(display.value) / 100;
+        let result = parseFloat(display.value) * 0.01;
         display.value = formatNumber(result);
     } catch (error) {
         display.value = 'Error';
@@ -53,4 +53,3 @@ setInterval(updateCurrentTime, 1000);
 
 // Initial display of current time
 updateCurrentTime();
-
