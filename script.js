@@ -1,26 +1,28 @@
-// script.js
-let display = document.getElementById('display');
+let input = document.getElementById('result');
 
-function appendToDisplay(value) {
-    display.value += value;
+function appendNumber(number) {
+    input.value += number;
 }
 
-function clearDisplay() {
-    display.value = '';
+function appendOperator(operator) {
+    input.value += operator;
 }
 
-function backspace() {
-    display.value = display.value.slice(0, -1);
+function clearInput() {
+    input.value = '';
 }
 
 function calculate() {
     try {
-        display.value = eval(display.value);
+        let expression = input.value;
+        expression = expression.replace(/%/g, '/100'); // 백분율 계산을 위해 %를 /100으로 대체
+        input.value = eval(expression);
     } catch (error) {
-        display.value = 'Error';
+        input.value = 'Error';
     }
 }
 
-function percent() {
-    display.value = String(parseFloat(display.value) / 100);
+function backspace() {
+    let currentValue = input.value;
+    input.value = currentValue.slice(0, -1);
 }
