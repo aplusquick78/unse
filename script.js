@@ -24,3 +24,4 @@ function calculate() {
 function percent() {
     display.value = String(parseFloat(display.value) / 100);
 }
+
