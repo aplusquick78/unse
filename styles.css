@@ -15,8 +15,23 @@ body {
     max-width: 300px; /* 최대 너비 제한 */
 }
 
-.input-container {
-    grid-column: span 2; /* 입력창이 두 열을 차지하도록 설정 */
+input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    text-align: right;
+    border: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
@@ -27,26 +42,15 @@ button {
     border: none;
 }
 
-.threeD-button {
-    background-color: #3498db; /* 버튼 배경색 */
+.equal-button {
+    grid-column: span 2;
+    background-color: #2ecc71; /* 초록색 배경 */
     color: white; /* 글자색 */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-    transition: transform 0.2s, background-color 0.2s; /* 변화 효과 */
+    transition: background-color 0.2s; /* 변화 효과 */
 }
 
-.threeD-button:hover {
-    background-color: #2980b9; /* 마우스 오버 시 배경색 변경 */
-    transform: translateY(-2px); /* 클릭 시 약간 위로 이동하는 효과 */
+.equal-button:hover {
+    background-color: #27ae60; /* 마우스 오버 시 배경색 변경 */
 }
 
-.backspace-button {
-    grid-column: span 2; /* 백스페이스 버튼이 두 열을 차지하도록 설정 */
-    background-color: #e74c3c; /* 빨간색 배경 */
-}
-
-/* 3D 버튼 효과 */
-.threeD-button:active {
-    transform: translateY(2px);
-    box-shadow: none;
-}
 
