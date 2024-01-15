@@ -10,9 +10,13 @@ body {
 
 .calculator {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 2fr; /* 출력창과 버튼 영역을 나눔 */
     gap: 5px;
     max-width: 300px; /* 최대 너비 제한 */
+}
+
+.input-container {
+    grid-column: span 2; /* 입력창이 두 열을 차지하도록 설정 */
 }
 
 button {
@@ -36,7 +40,7 @@ button {
 }
 
 .backspace-button {
-    grid-column: span 4;
+    grid-column: span 2; /* 백스페이스 버튼이 두 열을 차지하도록 설정 */
     background-color: #e74c3c; /* 빨간색 배경 */
 }
 
@@ -45,3 +49,4 @@ button {
     transform: translateY(2px);
     box-shadow: none;
 }
+
