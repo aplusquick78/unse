@@ -9,35 +9,38 @@
 <body>
 
 <div class="calculator">
-    <input type="text" id="display" readonly>
-    <br>
-    <button onclick="clearDisplay()" class="threeD-button">C</button>
-    <button onclick="appendToDisplay('(')" class="threeD-button">(</button>
-    <button onclick="appendToDisplay(')')" class="threeD-button">)</button>
-    <button onclick="appendToDisplay('/')" class="threeD-button">/</button>
-    <button onclick="appendToDisplay('7')" class="threeD-button">7</button>
-    <button onclick="appendToDisplay('8')" class="threeD-button">8</button>
-    <button onclick="appendToDisplay('9')" class="threeD-button">9</button>
-    <button onclick="appendToDisplay('*')" class="threeD-button">*</button>
-    <button onclick="appendToDisplay('4')" class="threeD-button">4</button>
-    <button onclick="appendToDisplay('5')" class="threeD-button">5</button>
-    <button onclick="appendToDisplay('6')" class="threeD-button">6</button>
-    <button onclick="appendToDisplay('-')" class="threeD-button">-</button>
-    <button onclick="appendToDisplay('1')" class="threeD-button">1</button>
-    <button onclick="appendToDisplay('2')" class="threeD-button">2</button>
-    <button onclick="appendToDisplay('3')" class="threeD-button">3</button>
-    <button onclick="appendToDisplay('+')" class="threeD-button">+</button>
-    <button onclick="appendToDisplay('0')" class="threeD-button">0</button>
-    <button onclick="appendToDisplay('00')" class="threeD-button">00</button>
-    <button onclick="appendToDisplay('.')">.</button>
-    <button onclick="calculate()" class="threeD-button">=</button>
-    <br>
-    <button onclick="backspace()" class="threeD-button backspace-button">⌫</button>
+    <div class="input-container">
+        <input type="text" id="display" readonly>
+    </div>
+    <div class="button-container">
+        <button onclick="clearDisplay()" class="threeD-button">C</button>
+        <button onclick="appendToDisplay('(')" class="threeD-button">(</button>
+        <button onclick="appendToDisplay(')')" class="threeD-button">)</button>
+        <button onclick="appendToDisplay('/')" class="threeD-button">/</button>
+        <button onclick="appendToDisplay('7')" class="threeD-button">7</button>
+        <button onclick="appendToDisplay('8')" class="threeD-button">8</button>
+        <button onclick="appendToDisplay('9')" class="threeD-button">9</button>
+        <button onclick="appendToDisplay('*')" class="threeD-button">*</button>
+        <button onclick="appendToDisplay('4')" class="threeD-button">4</button>
+        <button onclick="appendToDisplay('5')" class="threeD-button">5</button>
+        <button onclick="appendToDisplay('6')" class="threeD-button">6</button>
+        <button onclick="appendToDisplay('-')" class="threeD-button">-</button>
+        <button onclick="appendToDisplay('1')" class="threeD-button">1</button>
+        <button onclick="appendToDisplay('2')" class="threeD-button">2</button>
+        <button onclick="appendToDisplay('3')" class="threeD-button">3</button>
+        <button onclick="appendToDisplay('+')" class="threeD-button">+</button>
+        <button onclick="appendToDisplay('0')" class="threeD-button">0</button>
+        <button onclick="appendToDisplay('00')" class="threeD-button">00</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()" class="threeD-button">=</button>
+        <button onclick="backspace()" class="threeD-button backspace-button">⌫</button>
+    </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
