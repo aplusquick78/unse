@@ -16,7 +16,8 @@ function backspace() {
 
 function calculate() {
     try {
-        display.value = eval(display.value);
+        let result = eval(display.value);
+        display.value = formatNumber(result);
     } catch (error) {
         display.value = 'Error';
     }
@@ -24,7 +25,8 @@ function calculate() {
 
 function calculatePercentage() {
     try {
-        display.value = String(parseFloat(display.value) / 100);
+        let result = parseFloat(display.value) / 100;
+        display.value = formatNumber(result);
     } catch (error) {
         display.value = 'Error';
     }
@@ -40,6 +42,10 @@ function updateCurrentTime() {
     let seconds = now.getSeconds();
 
     currentTimeDisplay.innerHTML = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+function formatNumber(number) {
+    return number.toLocaleString();
 }
 
 // Update time every second
