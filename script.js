@@ -1,6 +1,9 @@
 let display = document.getElementById('display');
 
 function appendToDisplay(value) {
+    if (value === 'divide') {
+        value = '/';
+    }
     display.value += value;
 }
 
