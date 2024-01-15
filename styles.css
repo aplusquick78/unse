@@ -5,6 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    perspective: 1000px; /* 3D 효과를 위한 원근거리 설정 */
 }
 
 .calculator {
@@ -19,10 +20,28 @@ button {
     height: 40px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+}
+
+.threeD-button {
+    background-color: #3498db; /* 버튼 배경색 */
+    color: white; /* 글자색 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    transition: transform 0.2s, background-color 0.2s; /* 변화 효과 */
+}
+
+.threeD-button:hover {
+    background-color: #2980b9; /* 마우스 오버 시 배경색 변경 */
+    transform: translateY(-2px); /* 클릭 시 약간 위로 이동하는 효과 */
 }
 
 .backspace-button {
     grid-column: span 4;
-    background-color: #ff6666; /* 빨간색 배경 */
-    color: white;
+    background-color: #e74c3c; /* 빨간색 배경 */
+}
+
+/* 3D 버튼 효과 */
+.threeD-button:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
