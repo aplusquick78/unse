@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>고급 버튼식 계산기</title>
+    <title>계산기</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>고급 버튼식 계산기</h1>
-    <form id="calculator-form">
-        <input type="text" id="expression-input" placeholder="수식을 입력하세요">
-        <button type="button" onclick="calculate()">계산</button>
-        <div id="result"></div>
-    </form>
-
-    <form id="sqrt-form">
-        <input type="text" id="sqrt-input" placeholder="제곱근을 구할 숫자를 입력하세요">
-        <button type="button" onclick="calculateSqrt()">제곱근</button>
-        <div id="sqrt-result"></div>
-    </form>
-
-    <form id="factorial-form">
-        <input type="text" id="factorial-input" placeholder="팩토리얼을 구할 숫자를 입력하세요">
-        <button type="button" onclick="calculateFactorial()">팩토리얼</button>
-        <div id="factorial-result"></div>
-    </form>
+    <h1>계산기</h1>
+    <div id="calculator">
+        <input type="text" id="result" readonly>
+        <div id="buttons">
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button>
+            <button onclick="appendOperator('+')">+</button>
+            <br>
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button>
+            <button onclick="appendOperator('-')">-</button>
+            <br>
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button>
+            <button onclick="appendOperator('*')">*</button>
+            <br>
+            <button onclick="appendNumber(0)">0</button>
+            <button onclick="clearInput()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendOperator('/')">/</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
