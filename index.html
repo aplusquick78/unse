@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleek Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+<style>
+  /* 여기에 CSS 스타일을 추가하세요 */
+</style>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-        <div class="buttons">
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('*')">*</button>
-            <button onclick="appendToDisplay('00')">00</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="backspace()">←</button>
-            <button class="operator" onclick="calculate()">=</button>
-            <button class="operator" onclick="calculatePercentage()">%</button>
-        </div>
-    </div>
+  <!-- 계산기 UI 구성 -->
+  <div id="calculator">
+    <!-- 입력 필드 -->
+    <input type="text" id="input" disabled>
+    <!-- 버튼 -->
+    <button class="input-button" value="1">1</button>
+    <button class="input-button" value="2">2</button>
+    <button class="input-button" value="3">3</button>
+    <button class="input-button" value="+">+</button>
+    <!-- 기타 버튼들... -->
+    <button id="equal" value="=">=</button>
+    <button id="clear">AC</button>
+    <button id="erase">DEL</button>
+  </div>
 
-    <script src="script.js"></script>
+<script>
+// 변수 선언
+let equal_pressed = 0;
+// 버튼 선택
+let button_input = document.querySelectorAll(".input-button");
+let input = document.getElementById("input");
+let equal = document.getElementById("equal");
+let clear = document.getElementById("clear");
+let erase = document.getElementById("erase");
+
+// 페이지 로딩 시 입력 필드 초기화
+window.onload = () => {
+  input.value = "";
+};
+
+// 버튼 클릭 이벤트 리스너
+button_input.forEach((button_class) => {
+  button_class.addEventListener("click", () => {
+    if (equal_pressed == 1) {
+      input.value = "";
+      equal_pressed = 0;
+    }
+    input.value += button_class.value;
+  });
+});
+
+// 계산 실행
+equal.addEventListener("click", () => {
+  equal_pressed = 1;
+  let inp_val = input.value;
+  try {
+    let solution = eval(inp_val);
+    // 천 단위 구분자 포맷으로 변환하여 결과 표시
+    input.value = Number(solution).toLocaleString('en-US', {maximumFractionDigits: 2});
+  } catch (err) {
+    alert("Invalid Input");
+  }
+});
+
+// 전체 입력 지우기
+clear.addEventListener("click", () => {
+  input.value = "";
+});
+
+// 마지막 숫자 지우기
+erase.addEventListener("click", () => {
+  input.value = input.value.slice(0, -1);
+});
+</script>
 </body>
 </html>
-
-
