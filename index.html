@@ -1,128 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple Calculator</title>
-<style>
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f2f2f2;
-}
+  <style>
+    .calculator {
+      width: 300px;
+      height: 400px;
+      margin: auto;
+      border: 1px solid black;
+      padding: 10px;
+      background-color: lightgray;
+    }
 
-.calculator {
-    background-color: #fff;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-}
+    .display {
+      width: 280px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid black;
+      font-size: 20px;
+      text-align: right;
+    }
 
-input {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transform: scale(0.8); /* 20% 축소 */
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ddd;
-}
-
-.operator {
-    background-color: #f78c6c;
-    color: #fff;
-}
-</style>
+    .button {
+      width: 60px;
+      height: 60px;
+      margin: 10px;
+      border: 1px solid black;
+      font-size: 20px;
+      background-color: white;
+    }
+  </style>
 </head>
 <body>
-  <!-- 계산기 UI 구성 -->
-  <div id="calculator">
-    <!-- 입력 필드 -->
-    <input type="text" id="input" disabled>
-    <!-- 버튼 -->
-    <button class="input-button" value="1">1</button>
-    <button class="input-button" value="2">2</button>
-    <button class="input-button" value="3">3</button>
-    <button class="input-button" value="+">+</button>
-    <!-- 기타 버튼들... -->
-    <button id="equal" value="=">=</button>
-    <button id="clear">AC</button>
-    <button id="erase">DEL</button>
+  <div class="calculator">
+    <input type="text" id="display" class="display" readonly>
+    <div class="buttons">
+      <button id="one" class="button" onclick="appendNumber(1)">1</button>
+      <button id="two" class="button" onclick="appendNumber(2)">2</button>
+      <button id="three" class="button" onclick="appendNumber(3)">3</button>
+      <button id="plus" class="button" onclick="appendOperator('+')">+</button>
+      <button id="four" class="button" onclick="appendNumber(4)">4</button>
+      <button id="five" class="button" onclick="appendNumber(5)">5</button>
+      <button id="six" class="button" onclick="appendNumber(6)">6</button>
+      <button id="minus" class="button" onclick="appendOperator('-')">-</button>
+      <button id="seven" class="button" onclick="appendNumber(7)">7</button>
+      <button id="eight" class="button" onclick="appendNumber(8)">8</button>
+      <button id="nine" class="button" onclick="appendNumber(9)">9</button>
+      <button id="multiply" class="button" onclick="appendOperator('*')">*</button>
+      <button id="zero" class="button" onclick="appendNumber(0)">0</button>
+      <button id="equal" class="button" onclick="calculate()">=</button>
+      <button id="divide" class="button" onclick="appendOperator('/')">/</button>
+      <button id="clear" class="button" onclick="clearDisplay()">C</button>
+    </div>
   </div>
+  <script>
+    let display = document.getElementById("display");
+    let input = "";
 
-<script>
-// 변수 선언
-let equal_pressed = 0;
-// 버튼 선택
-let button_input = document.querySelectorAll(".input-button");
-let input = document.getElementById("input");
-let equal = document.getElementById("equal");
-let clear = document.getElementById("clear");
-let erase = document.getElementById("erase");
-
-// 페이지 로딩 시 입력 필드 초기화
-window.onload = () => {
-  input.value = "";
-};
-
-// 버튼 클릭 이벤트 리스너
-button_input.forEach((button_class) => {
-  button_class.addEventListener("click", () => {
-    if (equal_pressed == 1) {
-      input.value = "";
-      equal_pressed = 0;
+    function appendNumber(number) {
+      input += number;
+      display.value = input;
     }
-    input.value += button_class.value;
-  });
-});
 
-// 계산 실행
-equal.addEventListener("click", () => {
-  equal_pressed = 1;
-  let inp_val = input.value;
-  try {
-    let solution = eval(inp_val);
-    // 천 단위 구분자 포맷으로 변환하여 결과 표시
-    input.value = Number(solution).toLocaleString('en-US', {maximumFractionDigits: 2});
-  } catch (err) {
-    alert("Invalid Input");
-  }
-});
+    function appendOperator(operator) {
+      input += operator;
+      display.value = input;
+    }
 
-// 전체 입력 지우기
-clear.addEventListener("click", () => {
-  input.value = "";
-});
+    function calculate() {
+      let result = eval(input);
+      display.value = result;
+      input = result.toString();
+    }
 
-// 마지막 숫자 지우기
-erase.addEventListener("click", () => {
-  input.value = input.value.slice(0, -1);
-});
-</script>
+    function clearDisplay() {
+      input = "";
+      display.value = "";
+    }
+  </script>
 </body>
 </html>
